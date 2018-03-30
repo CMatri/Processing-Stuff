@@ -62,13 +62,14 @@ void draw() {
   
   println((timer > risePoint && timer < risePoint + 200), timer, risePoint, opacity);
   
-  if(timer < 200 || (timer > risePoint && timer < risePoint + 200)) {
-    textSize(40);
+  if(timer < 200 || (timer > risePoint - 200 && timer < risePoint)) {
+    textSize(50);
     fill(255, 255, 255, opacity);
     
-    if(timer < 200) text("WEED", width / 2 - 80, 20);
-    else text("LSD", width / 2 - 80, 20);
-    if((timer < 100 || timer > risePoint && timer < risePoint + 100) && opacity < 290) opacity += 3;
+    if(timer < 200) text("MARIJUANA", width / 2 - 155, 20);
+    else text("LSD", width / 2 - 50, 20);
+    
+    if((timer < 100 || timer > risePoint - 200 && timer < risePoint - 100) && opacity < 290) opacity += 3;
     else opacity -= 5;
   } else opacity = 0;
 }
