@@ -14,8 +14,7 @@ void setup() {
   
   cam = new QueasyCam(this);
   cam.speed = 2;
-  cam.sensitivity = 0.5;
-  
+  cam.sensitivity = 0.5;  
   
   p0 = new PVector(0, height / 2);
   p1 = new PVector(width / 5f, 0);

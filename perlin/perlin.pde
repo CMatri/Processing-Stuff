@@ -1,3 +1,4 @@
+
 int w, h, gw, gh, scl;
 float[][] noiseVals;
 

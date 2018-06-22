@@ -1,12 +1,14 @@
 float[] h, p;
 float x, x2, y, y2, a, b_radius, timer, risePoint, colY, opacity = 0;
 boolean hasRisen, testing = false;
+PShader blur;
 
 void setup() {
-  size(800, 800, P2D);
+  size(800, 800, P3D);
   frameRate(60);
   textFont(createFont(PFont.list()[15], 34));
   
+  blur = loadShader("blur.glsl");
   risePoint = 800;
   h = new float[200];
   p = new float[200];
@@ -21,8 +23,15 @@ void setup() {
 }
 
 void draw() {
-  if(hasRisen) background((sin(timer % 250 / 250 * 2 * PI) + 1) / 2.0 * 200 + 27.5, (sin(timer % 300 / 300 * 2 * PI) + 1) / 2.0 * 150 + 50, 255 - (sin(timer % 200 / 200 * 2 * PI) + 1) / 2.0 * 255);
-  else background(100);
+ // if(hasRisen) background((sin(timer % 250 / 250 * 2 * PI) + 1) / 2.0 * 200 + 27.5, (sin(timer % 300 / 300 * 2 * PI) + 1) / 2.0 * 150 + 50, 255 - (sin(timer % 200 / 200 * 2 * PI) + 1) / 2.0 * 255);
+ // else background(100);
+  
+  filter(blur);
+  pushStyle();
+  if(hasRisen) fill((sin(timer % 250 / 250 * 2 * PI) + 1) / 2.0 * 200 + 27.5, (sin(timer % 300 / 300 * 2 * PI) + 1) / 2.0 * 150 + 50, 255 - (sin(timer % 200 / 200 * 2 * PI) + 1) / 2.0 * 255, 30);
+  else fill(100);
+  rect(0, 0, width, height);
+  popStyle();
   
   translate(0, 280);
   fill(255);
