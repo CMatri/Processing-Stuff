@@ -6,7 +6,7 @@ ArrayList<PVector> points = new ArrayList<PVector>();
 float depth = 550;
 
 void setup() {
-  size(550, 550, P3D);
+  size(850, 850, P3D);
   background(0);
   frameRate(60);
   blur = loadShader("blur.glsl");
@@ -22,14 +22,14 @@ void draw() {
   rect(0, 0, width, height);
   popStyle();
   translate(width / 2, height / 2);
+  println(frameRate);
   
   for(PVector p : points) {    
     filter(blur);
-    //println(frameRate);
 
-    float r = p.x + sin(frameCount % 100 / 100.0 * TWO_PI) * 100;
-    float theta = p.y;// + sin(noise(frameCount % 1000.0 / 1000.0) * PI) * 10.0;
-    float phi = p.z;//   + cos(noise(frameCount % 1000.0 / 1000.0) * PI) * 10.0;
+    float r = p.x - frameCount / 100.0;//+ sin(frameCount % 100 / 100.0 * TWO_PI) * 100;
+    float theta = p.y - frameCount / 50.0;// + sin(noise(frameCount % 1000.0 / 1000.0) * PI) * 10.0;
+    float phi = p.z + frameCount / 30.0;//   + cos(noise(frameCount % 1000.0 / 1000.0) * PI) * 10.0;
     float x = r * sin(theta) * cos(phi);
     float y = r * sin(theta) * sin(phi);
     float z = r * cos(theta);

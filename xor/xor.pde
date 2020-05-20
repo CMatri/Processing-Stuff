@@ -36,7 +36,7 @@ void draw() {
         z = (float) k / n * depth + n / 2;
         if((i ^ j) == k) {
           stroke((float) j / n * 255.0, (float) k / n * 100.0 + (float) val / 100 * 200, (float) 255 - i / n * 255.0, 100);
-          PVector pt = new PVector(x + sin((float) ((i + val % n) * n * 0.05) / n * TWO_PI * 2.0) * 50.0, y + cos((float) ((i + val % n) * n * 0.05) / n * TWO_PI * 2.0) * 50.0, z);
+          PVector pt = new PVector(x + 0*sin((float) ((i + val % n) * n * 0.05) / n * TWO_PI * 2.0) * 50.0, y + 0*cos((float) ((i + val % n) * n * 0.05) / n * TWO_PI * 2.0) * 50.0, z);
           point(pt.x, pt.y, pt.z);
         }
       }

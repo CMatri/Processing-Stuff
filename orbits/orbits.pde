@@ -22,9 +22,9 @@ void draw() {
   float x1 = cos(t1) * r1;
   float y1 = sin(t1) * r1;
   
-  t0 += t0 >= 2 * PI ? -t0 : 0.05;
-  t1 += t1 >= 2 * PI ? -t1 : 0.03;
-  drawTimer += .5;
+  t0 += t0 >= 2 * PI ? -t0 : 0.02;
+  t1 += t1 >= 2 * PI ? -t1 : 0.01;
+  drawTimer += .23;
   
   stroke(0, 255, 0);
   fill(255);
